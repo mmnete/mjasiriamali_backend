@@ -3,7 +3,7 @@ from flask_cors import CORS
 from document_editor import add_banner_helper
 
 app = Flask(__name__)
-CORS(app, resources={"/add_banner": {"origins": "http://localhost:3000"}})
+CORS(app, resources={"/add_banner": {"origins": "https://thriving-chebakia-ffd31c.netlify.app"}})
 
 @app.route('/add_banner', methods=['POST'])
 def add_banner():

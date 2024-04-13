@@ -1,3 +1,4 @@
 # to install packages run: pip install -r requirements.txt
 
 python-docx==1.1.0
+gunicorn=21.2.0

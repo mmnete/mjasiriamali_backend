@@ -9,7 +9,16 @@ CORS(app, resources={"/add_banner": {"origins": "https://thriving-chebakia-ffd31
 def add_banner():
     new_doc = request.files['document']
     result_document_path = add_banner_helper(new_doc)
-    return send_file(result_document_path, as_attachment=True)
+    
+    # Create response
+    response = send_file(result_document_path, as_attachment=True)
+
+    # Set CORS headers
+    response.headers['Access-Control-Allow-Origin'] = 'https://thriving-chebakia-ffd31c.netlify.app'
+    response.headers['Access-Control-Allow-Methods'] = 'POST'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
